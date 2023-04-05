@@ -2,13 +2,13 @@
 
 # Lettura del dataset tcount-bglsep_1.txt
 tcount.bglsep <- read.delim("C:/Users/jessi/Desktop/Università/Magistrale/II ANNO/Data Science/Homework 1/ffdatools/counts/tcount-bglsep_1.txt")
-x<-tcount.bglsep$CWIN
-y<-tcount.bglsep$COUNT
+CWIN<-tcount.bglsep$CWIN
+COUNT<-tcount.bglsep$COUNT
 
-p<-plot(x, y, type='o')
+p<-plot(CWIN, COUNT, type='o')
 
 # Analisi ravvicinata per scegliere i parametri per trovare la retta tangente
-p<-plot(x, y, type='o', xlim =c(0,500), ylim=c(0,500))
+p<-plot(CWIN, COUNT, type='o', xlim =c(0,500), ylim=c(0,500))
 
 # Plot della retta tangente che passa per il punto di ginocchio 
 x1=c(0,295)
@@ -20,9 +20,9 @@ lm(x1 ~ y1)
 
 # Selezione del valore di CWIN nell’intorno destro del punto di tangenza
 #abline(v=100, lwd=2, col="blue") 
-point <- points(x[which.max(x > 100)], y[which.max(x>100)], pch=20, col="green", cex=2)
+point <- points(CWIN[which.max(CWIN > 100)], COUNT[which.max(CWIN>100)], pch=20, col="green", cex=2)
 
-x[which.max(x > 100)] #restituisce il valore di CWIN selezionato
+CWIN[which.max(CWIN > 100)] #restituisce il valore di CWIN selezionato
 
 
 ############################## 

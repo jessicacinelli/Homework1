@@ -1,14 +1,14 @@
 ####### CWIN selection ####### 
 
 # Lettura del dataset tcount-bgloct_1.txt
-tcount.bgloct <- read.delim("C:/Users/jessi/Desktop/Università/Magistrale/II ANNO/Data Science/Homework 1/ffdatools/counts/tcount-bgloct_1.txt")
-x<-tcount.bgloct$CWIN
-y<-tcount.bgloct$COUNT
+tcount.bgloct <- read.delim("C:/Users/jessi/Desktop/Università/Magistrale/II ANNO/Data Science/Homeworks/Homework1/ffdatools/counts/tcount-bgloct_1.txt")
+CWIN<-tcount.bgloct$CWIN
+COUNT<-tcount.bgloct$COUNT
 
-p<-plot(x, y, type='o')
+p<-plot(CWIN, COUNT, type='o')
 
 # Analisi ravvicinata per scegliere i parametri per trovare la retta tangente
-p<-plot(x, y, type='o', xlim =c(0,400), ylim=c(0,400))
+p<-plot(CWIN, COUNT, type='o', xlim =c(0,400), ylim=c(0,400))
 
 # Plot della retta tangente che passa per il punto di ginocchio 
 x1=c(0,295)
@@ -20,16 +20,16 @@ lm(x1 ~ y1)
 
 # Selezione del valore di CWIN nell’intorno destro del punto di tangenza
 #abline(v=100, lwd=2, col="blue") 
-point <- points(x[which.max(x > 100)], y[which.max(x>100)], pch=20, col="green", cex=2)
+point <- points(CWIN[which.max(CWIN > 100)], COUNT[which.max(CWIN>100)], pch=20, col="green", cex=2)
 
-x[which.max(x > 100)] #restituisce il valore di CWIN selezionato
+CWIN[which.max(CWIN > 100)] #restituisce il valore di CWIN selezionato
 
 
 ############################## 
 ######reliability modeling#### 
 
-# Lettura del dataset interarrivals di tuples-bglsep_1-120
-interarrivals <- read.table("C:/Users/jessi/Desktop/Università/Magistrale/II ANNO/Data Science/Homework 1/ffdatools/tuples-bgloct_1-120/interarrivals.txt")
+# Lettura del dataset interarrivals di tuples-bgloct_1-120
+interarrivals <- read.table("C:/Users/jessi/Desktop/Università/Magistrale/II ANNO/Data Science/Homeworks/Homework1/ffdatools/tuples-bgloct_1-120/interarrivals.txt")
 
 # Plot della ecdf 
 plot (ecdf(interarrivals$V1), col="blue")
@@ -45,7 +45,7 @@ r <- 1-ttf(t)
 #pch=16 per plottare i punti con i cerchi pieni
 lines(t, r, , type="o", pch=16)
 plot(t, r,type="o", pch=16 )
-
+1/mean(interarrivals$V1)
 
 # Stima delle regressione: modello esponenziale
 exp_mod <- nls (r ~ exp(-(l*t)), start=list(l=(1/mean(interarrivals$V1))))
