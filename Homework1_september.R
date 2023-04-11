@@ -32,7 +32,7 @@ CWIN[which.max(CWIN > 100)] #restituisce il valore di CWIN selezionato
 interarrivals <- read.table("C:/Users/jessi/Desktop/Università/Magistrale/II ANNO/Data Science/Homework 1/ffdatools/tuples-bglsep_1-120/interarrivals.txt")
 
 # Plot della ecdf 
-plot (ecdf(interarrivals$V1))
+plot (ecdf(interarrivals$V1), main=NULL, xlab="time (s)", ylab="p")
 
 # Calcolo della reliability come 1 - ttf
 ttf<-ecdf(interarrivals$V1) 
@@ -45,7 +45,9 @@ r <- 1-ttf(t)
 
 #pch=16 per plottare i punti con i cerchi pieni
 lines(t, r, , type="o", pch=16, col="blue")
-
+legend( x="right", 
+        legend=c("CDF empirica", "Reliability"),
+        col=c("blue","black"), lwd=1)
 
 # Stima delle regressione: modello esponenziale
 exp_mod <- nls (r ~ exp(-(l*t)), start=list(l=(1/mean(interarrivals$V1))))

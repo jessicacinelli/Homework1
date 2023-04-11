@@ -1,3 +1,4 @@
+library(ggplot)
 # Lettura del file interarrivals.txt
 interarrivals <- read.table("C:/Users/jessi/Desktop/Università/Magistrale/II ANNO/Data Science/Homeworks/Homework1/ffdatools/tuples-bglsep_1-120/interarrivals.txt")
 plot(interarrivals)
