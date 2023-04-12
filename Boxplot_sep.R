@@ -64,11 +64,11 @@ ggplot_box_legend <- function(family = "sans"){
                      y = ggplot_output[["25th percentile"]], yend = ggplot_output[["25th percentile"]])) +     
     geom_segment(aes(x = 1.2, xend = 2.3, 
                      y = ggplot_output[["75th percentile"]], yend = ggplot_output[["75th percentile"]])) + 
-    geom_text(aes(x = 2.6, 
+    geom_text(aes(x = 2.4, 
                   y = (ggplot_output[["50th percentile (median)"]]+0.2)),label = "Interquartile range", fontface = "bold",vjust = 0.4) +  
     geom_text(aes(x = c(1.17,1.17),
                   y = c(ggplot_output[["upper_whisker"]], ggplot_output[["lower_whisker"]]), 
-                  label = c("Largest value within 1.5 times interquartile range above 75th percentile","\nSmallest value within 1.5 times interquartile range below 25th percentile")),
+                  label = c("Largest value within 1.5 times interquartile range above\n75th percentile","Smallest value within 1.5 times interquartile range below\n25th percentile")),
               fontface = "bold", vjust = 0.9) +  
     geom_text(aes(x = c(1.17),y = 45000,label = "Outliers"),vjust = 0.5, fontface = "bold") +
     geom_text(aes(x = 1.17, 
@@ -79,12 +79,19 @@ ggplot_box_legend <- function(family = "sans"){
     ylab("") +
     xlab("") +
     theme(axis.text = element_blank(),
-          axis.ticks = element_blank(),
+          axis.ticks.x  = element_blank(),
+          axis.line.x = element_blank(),
+          axis.line.y = element_line(color = "black"),
+          axis.ticks.y= element_line(color="black"),
+          axis.ticks.length.y = unit(.25, "cm"),
+          axis.text.y = element_text(margin=unit(c(0.3,0.3,0.3,0.3), "cm"), size=10),
           panel.grid = element_blank(),
           aspect.ratio = 4/3,
           plot.title = element_text(hjust = 0.5, size = 10)) +
-    coord_cartesian(xlim = c(1.4,3.1), ylim = c(-1000
-                                      , 71000)) 
+   
+    coord_cartesian(xlim = c(1.4,3.1), ylim = c(0 , 80000)) +
+  
+    scale_y_continuous(breaks = seq(0, 80000, by=10000), limits=c(0,80000))
    
   
   return(explain_plot) 

@@ -64,27 +64,32 @@ ggplot_box_legend <- function(family = "sans"){
                      y = ggplot_output[["25th percentile"]], yend = ggplot_output[["25th percentile"]])) +     
     geom_segment(aes(x = 1.2, xend = 2.3, 
                      y = ggplot_output[["75th percentile"]], yend = ggplot_output[["75th percentile"]])) + 
-    geom_text(aes(x = 2.6, 
-                  y = (ggplot_output[["50th percentile (median)"]]+0.2)),label = "Interquartile range", fontface = "bold",vjust = 0.4) +  
+    geom_text(aes(x = 2.4, 
+                  y = (ggplot_output[["50th percentile (median)"]])),label = "Interquartile range", fontface = "bold",vjust = 0.4) +  
     geom_text(aes(x = c(1.17,1.17),
                   y = c(ggplot_output[["upper_whisker"]], ggplot_output[["lower_whisker"]]), 
-                  label = c("Largest value within 1.5 times interquartile range above 75th percentile","\nSmallest value within 1.5 times interquartile range below 25th percentile")),
+                  label = c("Largest value within 1.5 times interquartile range above\n75th percentile","\nSmallest value within 1.5 times interquartile range below\n25th percentile")),
               fontface = "bold", vjust = 0.9) +  
     geom_text(aes(x = c(1.17),y = 75000,label = "Outliers"),vjust = 0.5, fontface = "bold") +
-    geom_text(aes(x = 1.17, 
-                  y = ggplot_output[["lower_dots"]], 
-                  label = ""), 
-              vjust = 1.5) +
+              
     geom_label(aes(x = 1.17, y = ggplot_output[["quartiles"]], label = names(ggplot_output[["quartiles"]])),vjust = c(0.4,0.85,0.4), fill = "white", label.size = 0) +
     ylab("") +
     xlab("") +
+    
     theme(axis.text = element_blank(),
           axis.ticks = element_blank(),
+          axis.line.y = element_line(color = "black"),
+          axis.ticks.y= element_line(color="black"), 
+          axis.text.y = element_text(margin=unit(c(0.3,0.3,0.3,0.3), "cm"), size=10),
+          axis.ticks.length.y = unit(.25, "cm"),
           panel.grid = element_blank(),
           aspect.ratio = 4/3,
           plot.title = element_text(hjust = 0.5, size = 10)) +
-    coord_cartesian(xlim = c(1.4,3.1), ylim = c(-1000
-                                                , 80000)) 
+    coord_cartesian(xlim = c(1.4,3.1), ylim = c(-2000 , 130000)) +
+  
+  scale_y_continuous(breaks = seq(0, 130000, by=10000), limits=c(0,130000))
+ 
+  
   
   
   return(explain_plot) 
