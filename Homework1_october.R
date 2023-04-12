@@ -66,7 +66,7 @@ ks.test(r, predict(wei_mod))
 # Stima delle regressione: modello iperesponenziale (1)
 hex_mod<-nls (r ~ 0.5*exp(-(l1*t))+0.5*exp(-(l2*t)), start=list(l1=(1/mean(interarrivals$V1)),l2=4.964024e-06 ))
 
-lines(t, predict(hex_mod), col="magenta", lwd=2)
+#lines(t, predict(hex_mod), col="magenta", lwd=2)
 ks.test(r, predict(hex_mod))
 
 # Stima delle regressione: modello iperesponenzionale (2)
@@ -75,3 +75,6 @@ hex2_mod<-nls (r ~ 0.4*exp(-(l1*t))+0.6*exp(-(l2*t)), start=list(l1=(1/mean(inte
 lines(t, predict(hex2_mod), col="green", lwd=2)
 ks.test(r, predict(hex2_mod)) #restituisce il p-value più alto. 
 
+legend( x="right", 
+        legend=c("Modello esponenziale", "Modello Weibull", "Modello iper-esponenziale"),
+        col=c("blue","red", "green"), lwd=1)
