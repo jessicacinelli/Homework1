@@ -10,8 +10,7 @@ def selection(file, node):
 
     with open(node, mode="w") as output:
         for item in temp:
-            #row = (', '.join(item))
-            output.write(item+"\n")
+            output.write(item)
     print("\nOUTPUT: ffdatools/"+node)
 
 
