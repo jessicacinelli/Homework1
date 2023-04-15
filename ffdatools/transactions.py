@@ -15,6 +15,7 @@ def readfile(files):
         for item in final:
             row = (', '.join(item))
             file.write(row+"\n")
+    print("\nOUTPUT: ffdatools/"+folder+"output.csv")
 
 if __name__ == '__main__':
     args = len(sys.argv)

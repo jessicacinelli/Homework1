@@ -12,6 +12,7 @@ def selection(file, node):
         for item in temp:
             #row = (', '.join(item))
             output.write(item+"\n")
+    print("\nOUTPUT: ffdatools/"+node)
 
 
 if __name__ == '__main__':
