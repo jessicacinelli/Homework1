@@ -1,5 +1,5 @@
 # Lettura del dataset interarrivals di tuples-bglsep_1-120
-interarrivals <- read.table("C:/Users/jessi/Desktop/Università/Magistrale/II ANNO/Data Science/Homework 1/ffdatools/tuples-bglsep_1-120/interarrivals.txt")
+interarrivals <- read.table("ffdatools/tuples-R63-M1-NC-1200/interarrivals.txt")
 
 # Calcolo della media
 media <- mean(interarrivals$V1)
@@ -16,7 +16,7 @@ m
 # Calcolo range semi-inter-quartile
 quartiles<-quantile(interarrivals$V1, probs=c(0,0.25,0.5,0.75,1))
 SIQR<-(quartiles[4] - quartiles[2])/2
-
+SIQR
 # Calcolo errore standard
 errore_standard <- deviazione_standard/ sqrt(n)
 
