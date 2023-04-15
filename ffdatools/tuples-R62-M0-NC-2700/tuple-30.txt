@@ -1,0 +1,4 @@
+1128267145 2005.10.02 R62-M0-NC I:J18 U11 2005-10-02-08.32.25.417912 R62-M0-NC I:J18 U11 RAS APP FATAL ciod: Error loading /bgl/apps/SWL/stability/DDCMD//ddcMDbglV: invalid or missing program image, Permission denied
+1128267145 2005.10.02 R62-M0-NC I:J18 U01 2005-10-02-08.32.25.525845 R62-M0-NC I:J18 U01 RAS APP FATAL ciod: Error loading /bgl/apps/SWL/stability/DDCMD//ddcMDbglV: invalid or missing program image, Permission denied
+1128267304 2005.10.02 R62-M0-NC I:J18 U11 2005-10-02-08.35.04.834618 R62-M0-NC I:J18 U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:58907: Link has been severed
+1128267304 2005.10.02 R62-M0-NC I:J18 U01 2005-10-02-08.35.04.941492 R62-M0-NC I:J18 U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:58908: Link has been severed
