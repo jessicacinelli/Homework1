@@ -1,6 +1,6 @@
 library(ggplot2)
 # Lettura del file interarrivals.txt
-interarrivals <- read.table("ffdatools/tuples-R63-M1-N8-1200/interarrivals.txt")
+interarrivals <- read.table("ffdatools/tuples-R63-M1-N8-240/interarrivals.txt")
 
 # Plot della ecdf 
 plot(ecdf(interarrivals$V1), col="blue", main=NULL, xlab="time (s)", ylab="p")
@@ -35,13 +35,13 @@ ks.test(r, predict(wei_mod))
 1/mean(interarrivals$V1)
 
 # Stima delle regressione: modello iperesponenziale (1)
-hex_mod<-nls (r ~ 0.5*exp(-(l1*t))+0.5*exp(-(l2*t)), start=list(l1=(1/mean(interarrivals$V1)),l2=1.31128e-06 ))
+hex_mod<-nls (r ~ 0.5*exp(-(l1*t))+0.5*exp(-(l2*t)), start=list(l1=(1/mean(interarrivals$V1)),l2=1.446994e-06 ))
 
 #lines(t, predict(hex_mod), col="magenta", lwd=4)
 ks.test(r, predict(hex_mod))
 
 # Stima delle regressione: modello iperesponenzionale (2)
-hex2_mod<-nls (r ~ 0.2*exp(-(l1*t))+0.8*exp(-(l2*t)), start=list(l1=(1/mean(interarrivals$V1)),l2=1.31128e-06 ))
+hex2_mod<-nls (r ~ 0.2*exp(-(l1*t))+0.8*exp(-(l2*t)), start=list(l1=(1/mean(interarrivals$V1)),l2=1.446994e-06 ))
 ks.test(r, predict(hex2_mod)) #restituisce il p-value più alto. 
 lines(t, predict(hex2_mod), col="green", lwd=2)
 
