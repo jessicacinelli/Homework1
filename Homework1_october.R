@@ -11,12 +11,21 @@ p<-plot(CWIN, COUNT, type='o')
 p<-plot(CWIN, COUNT, type='o', xlim =c(0,400), ylim=c(0,400))
 
 # Plot della retta tangente che passa per il punto di ginocchio 
-x1=c(0,295)
-y1=c(195,0)
+x1=c(0,205)
+y1=c(205,0)
 line<-lines(x1,y1,type='l', col='red', lwd=3)
 
 # lm per ottenere i coefficiente angolare e intercetta della retta tangente
 lm(x1 ~ y1)
+
+
+# Selezione del valore di CWIN nell’intorno destro del punto di tangenza
+#abline(v=100, lwd=2, col="blue") 
+point <- points(CWIN[which.max(CWIN > 30)], COUNT[which.max(CWIN>30)], pch=20, col="cyan", cex=2)
+
+CWIN[which.max(CWIN > 30)] #restituisce il valore di CWIN selezionato
+
+
 
 # Selezione del valore di CWIN nell’intorno destro del punto di tangenza
 #abline(v=100, lwd=2, col="blue") 
